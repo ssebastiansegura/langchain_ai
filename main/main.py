@@ -7,6 +7,7 @@ load_dotenv()
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 
+## TOOL Gemini will use whenever it needs it.
 def get_weather(city: str) -> str:
     """Get weather for a given city."""
     return f"I'ts always sunny in {city}!"
@@ -20,9 +21,9 @@ llm = ChatGoogleGenerativeAI(
 )
 
 agent = create_agent(
-    model=llm,
-    tools=[get_weather],
-    system_prompt="You are a helpful assistant.",
+    model=llm,                                      ## agent's model (gemini-2.5-flash-lite).
+    tools=[get_weather],                            ## tools it is allowed to use.
+    system_prompt="You are a helpful assistant.",   ## personality.
 )
 
 result = agent.invoke(
