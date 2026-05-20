@@ -1,0 +1,8 @@
+## install LangChain package
+py -m pip install -U langchain
+
+## install Gemini LLM integration
+py -m pip install -U langchain-google-genai
+
+## dependencies
+pip install -U langchain deepagents
